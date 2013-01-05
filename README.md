@@ -65,7 +65,7 @@ if(myFieldsJsForm.save()) {
 
 # i18n
 
-All canned text displayed by this module can be fully customized and internationalized using standard Dojo i18n support (please see dojotoolkit.org/reference-guide/1.8/quickstart/internationalization/index.html).  Resource bundles may be located in the `/nls/` directory.
+All canned text displayed by this module can be fully customized and internationalized using standard Dojo i18n support (see dojotoolkit.org/reference-guide/1.8/quickstart/internationalization/index.html).  Resource bundles are located in the `/nls/` directory.
 
 # Future Improvements
 
