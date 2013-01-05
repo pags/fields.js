@@ -1,0 +1,27 @@
+.fieldsjs label {
+    display: initial;
+}
+
+.fieldsjs-required {
+    font-size: x-small;
+    color: #8B0000
+}
+
+.fieldsjs .fieldsjs-validation-failure {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #FF0000;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #FF0000;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #FF0000;
+    border-color: #FF0000
+}
+
+.fieldsjs .fieldsjs-label-top, .fieldsjs .fieldsjs-label-bottom {
+    display: block;
+}
+
+.tooltipErrorContainer {
+    border: 1px solid red !important;
+}
+
+.dijitTooltipRight .tooltipErrorConnector {
+    background: url("tooltipConnectorLeft.png") no-repeat top left !important;
+}
