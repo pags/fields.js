@@ -436,6 +436,12 @@ function(declare, _WidgetBase, Tooltip, Dialog, lang, on, i18n, domConstruct, do
             if (isNaN(parseInt(day)) || day.length !== 2 || day < 1 || day > 31) {
                 return;
             }
+            
+            var testDayDate = new Date(year, monthOrWeek-1, day);
+                
+            if (testDayDate.getFullYear() != year || testDayDate.getMonth() != (monthOrWeek)-1 || testDayDate.getDate() != day) {
+                return;
+            }
         }
 
         return dateString;
