@@ -70,4 +70,4 @@ All canned text displayed by this module can be fully customized and internation
 # Future Improvements
 
 * Support for other native Dijit widgets within forms.
-* Better validation of RFC-3339 fields - Currently date\time fields are validated based on highest acceptable values (ex: "31" for day-of-month values).  Obviously this is not accurate in all cases.
+* Better validation of RFC-3339 fields - Currently week fields are validated on highest acceptable value (53).  Obviously this is not accurate in all cases.
