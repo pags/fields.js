@@ -6,7 +6,7 @@
  */
 define(["dojo/_base/declare", "dijit/Destroyable", "./Tooltip", "./ConfirmationDialog", "dojo/_base/lang", "dojo/dom", "dojo/on", "dojo/i18n!FieldsJs/nls/resources", "dojo/dom-construct", "dojo/dom-attr", "dojo/dom-class", "dojo/query", "dojo/NodeList-dom"],
 function(declare, Destroyable, Tooltip, Dialog, lang, dom, on, i18n, domConstruct, domAttr, domClass, query) {
-    var module = declare("FieldsJsForm", [Destroyable], {
+    var FieldsJsForm = declare([Destroyable], {
         domNode : null,
         options : null,
         fields : null,
@@ -542,5 +542,5 @@ function(declare, Destroyable, Tooltip, Dialog, lang, dom, on, i18n, domConstruc
         return dateTimeString;
     };
     
-    return module;
+    return FieldsJsForm;
 });
