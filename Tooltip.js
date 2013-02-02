@@ -1,5 +1,5 @@
-define(["dijit/Tooltip"],
-function(Tooltip) {
+define(["dijit/Tooltip", "dojo/dom-class"],
+function(Tooltip, domClass) {
     var identifiers = {};
     
     var generateId = function(aroundNode, containerId) {
@@ -12,8 +12,8 @@ function(Tooltip) {
 
         if (!tt) {
             tt = new dijit._MasterTooltip();
-            tt.containerNode.className += " tooltipErrorContainer";
-            tt.connectorNode.className += " tooltipErrorConnector";
+            domClass.add(tt.containerNode, "tooltipErrorContainer");
+            domClass.add(tt.connectorNode, "tooltipErrorConnector");
             identifiers[identifier] = tt;
         }
         
