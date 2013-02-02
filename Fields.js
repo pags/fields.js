@@ -4,9 +4,10 @@
  * github.com/pags/dojo-fields.js
  * Copyright 2013 Justin Pagano
  */
-define(["dojo/_base/declare", "dijit/_WidgetBase", "./Tooltip", "./ConfirmationDialog", "dojo/_base/lang", "dojo/on", "dojo/i18n!FieldsJs/nls/resources", "dojo/dom-construct", "dojo/dom-attr", "dojo/dom-class", "dojo/query", "dojo/NodeList-dom"],
-function(declare, _WidgetBase, Tooltip, Dialog, lang, on, i18n, domConstruct, domAttr, domClass, query) {
-    var module = declare("FieldsJsForm", [_WidgetBase], {
+define(["dojo/_base/declare", "dijit/Destroyable", "./Tooltip", "./ConfirmationDialog", "dojo/_base/lang", "dojo/dom", "dojo/on", "dojo/i18n!FieldsJs/nls/resources", "dojo/dom-construct", "dojo/dom-attr", "dojo/dom-class", "dojo/query", "dojo/NodeList-dom"],
+function(declare, Destroyable, Tooltip, Dialog, lang, dom, on, i18n, domConstruct, domAttr, domClass, query) {
+    var module = declare("FieldsJsForm", [Destroyable], {
+        domNode : null,
         options : null,
         fields : null,
         tooltips : null,
@@ -14,7 +15,9 @@ function(declare, _WidgetBase, Tooltip, Dialog, lang, on, i18n, domConstruct, do
         unsavedChangesDialog : null,
         unsavedChanges : null,
 
-        constructor : function(options) {
+        constructor : function(options, srcNodeRef) {
+            this.domNode = dom.byId(srcNodeRef);
+            
             this.options = lang.mixin(FieldsJsForm.DEFAULTS, options);
             this.fields = {};
             this.tooltips = {};
@@ -27,9 +30,7 @@ function(declare, _WidgetBase, Tooltip, Dialog, lang, on, i18n, domConstruct, do
         initialize : function(element) {
             var fieldProcessor = lang.hitch(this, "registerField");
 
-            query("input", this.domNode).forEach(fieldProcessor);
-            query("select", this.domNode).forEach(fieldProcessor);
-            query("textarea", this.domNode).forEach(fieldProcessor);
+            query("input, select, textarea", this.domNode).forEach(fieldProcessor);
         },
 
         registerField : function(node) {
@@ -99,7 +100,7 @@ function(declare, _WidgetBase, Tooltip, Dialog, lang, on, i18n, domConstruct, do
                 var l = fieldArray.length;
 
                 if (l > 1) {
-                    for (var i = 0; i < l; i++) {
+                    for (var i = 0; i < l; ++i) {
                         var field = fieldArray[i];
 
                         domAttr.set(field, "checked", domAttr.get(field, "value") === value);
@@ -118,7 +119,7 @@ function(declare, _WidgetBase, Tooltip, Dialog, lang, on, i18n, domConstruct, do
                 var l = fieldArray.length;
 
                 if (l > 1) {
-                    for (var i = 0; i < l; i++) {
+                    for (var i = 0; i < l; ++i) {
                         var field = fieldArray[i];
 
                         if (domAttr.get(field, "checked")) {
@@ -156,7 +157,7 @@ function(declare, _WidgetBase, Tooltip, Dialog, lang, on, i18n, domConstruct, do
             } else {
                 query("." + FieldsJsForm.CSS_CLASSES.VALIDATION_FAILURE, this.domNode).removeClass(FieldsJsForm.CSS_CLASSES.VALIDATION_FAILURE);
                 
-                for (var i = 0, l = this.eventHandlers.length; i < l; i++) {
+                for (var i = 0, l = this.eventHandlers.length; i < l; ++i) {
                     this.eventHandlers[i].remove();
                 }
                 
@@ -349,7 +350,7 @@ function(declare, _WidgetBase, Tooltip, Dialog, lang, on, i18n, domConstruct, do
         "email" : function() {
             var addresses = domAttr.get(this, "value").split(",");
 
-            for (var i = 0, l = addresses.length; i < l; i++) {
+            for (var i = 0, l = addresses.length; i < l; ++i) {
                 if (!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(addresses[i])) {
                     return false;
                 }
