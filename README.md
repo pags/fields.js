@@ -17,13 +17,11 @@ Although Fields.js works with the HTML `<form>` tag and standard form submittal 
 * Dojo (tested against v1.8)
 * Dijit
 
-This module is a Dijit widget, and as such all associated Dojo and Dijit core dependencies are required.
-
 Also be sure to include the "fields.css" stylesheet.
 
 # Usage
 
-Simply require this module and apply to any DOM node as you would any standard Dijit widget, for example:
+Simply require this module and apply to any DOM node as you would with a standard Dijit widget, for example:
 
 <pre>
 require(["FieldsJs/Fields"], function(FieldsJsForm) {
@@ -69,5 +67,5 @@ All canned text displayed by this module can be fully customized and internation
 
 # Future Improvements
 
-* Support for other native Dijit widgets within forms.
+* Support for native Dijit widgets within forms.
 * Better validation of RFC-3339 fields - Currently week fields are validated on highest acceptable value (53).  Obviously this is not accurate in all cases.
