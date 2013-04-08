@@ -27,7 +27,7 @@ function(declare, Destroyable, Tooltip, Dialog, lang, dom, on, i18n, domConstruc
             this.initialize();
         },
 
-        initialize : function(element) {
+        initialize : function() {
             var fieldProcessor = lang.hitch(this, "registerField");
 
             query("input, select, textarea", this.domNode).forEach(fieldProcessor);
@@ -351,7 +351,7 @@ function(declare, Destroyable, Tooltip, Dialog, lang, dom, on, i18n, domConstruc
             var addresses = domAttr.get(this, "value").split(",");
 
             for (var i = 0, l = addresses.length; i < l; ++i) {
-                if (!/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(addresses[i])) {
+                if (!/^[a-zA-Z0-9.!#$%&ï¿½*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(addresses[i])) {
                     return false;
                 }
             }
