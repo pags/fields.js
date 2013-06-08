@@ -4,7 +4,7 @@
  * github.com/pags/dojo-fields.js
  * Copyright 2013 Justin Pagano
  */
-define(["dojo/_base/declare", "dijit/Destroyable", "./Tooltip", "./ConfirmationDialog", "dojo/_base/lang", "dojo/dom", "dojo/on", "dojo/i18n!FieldsJs/nls/resources", "dojo/dom-construct", "dojo/dom-attr", "dojo/dom-class", "dojo/query", "dojo/NodeList-dom"],
+define(["dojo/_base/declare", "dijit/Destroyable", "./Tooltip", "./ConfirmationDialog", "dojo/_base/lang", "dojo/dom", "dojo/on", "dojo/i18n!./nls/resources", "dojo/dom-construct", "dojo/dom-attr", "dojo/dom-class", "dojo/query", "dojo/NodeList-dom"],
 function(declare, Destroyable, Tooltip, Dialog, lang, dom, on, i18n, domConstruct, domAttr, domClass, query) {
     var FieldsJsForm = declare([Destroyable], {
         domNode : null,
