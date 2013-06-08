@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dijit/Dialog", "dijit/form/Button", "dojo/dom-construct", "dojo/i18n!FieldsJs/nls/resources"],
+define(["dojo/_base/declare", "dijit/Dialog", "dijit/form/Button", "dojo/dom-construct", "dojo/i18n!./nls/resources"],
 function(declare, Dialog, Button, domConstruct, i18n) {
     return declare([Dialog], {
         proceedButton : null,
